@@ -22,6 +22,8 @@
             <div class="panel panel-info">
                 <div class="panel-heading">
                     <div class="tablist text-center">
+                    	${sessionScope.register_failed }
+                    	<br/>
                         <a href="#" id="login">Login</a>
                         <span>|</span>
                         <a href="#" id="register">Enroll</a>
@@ -53,6 +55,8 @@
                                 </div>
                                 <div class="col-md-8">
                                     <input type="password" class="form-control" id="password" name="password" placeholder="password">
+                                    <br/>
+                                    <span id="message" style="color:red">${sessionScope.login_failed }</span>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +82,7 @@
                                     </label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="StuNumber" placeholder="Student Number">
+                                    <input type="text" class="form-control" id="studentId" name="studentId" placeholder="Student Number">
                                 </div>
                             </div>
                         </div>
@@ -92,7 +96,7 @@
                                     </label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="Rusername" placeholder="username">
+                                    <input type="text" class="form-control" id="username" name="username" placeholder="username">
                                 </div>
                             </div>
                         </div>
@@ -106,7 +110,7 @@
                                     </label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="password" class="form-control" id="Rpassword" placeholder="password">
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="password">
                                 </div>
                             </div>
                         </div>
@@ -120,7 +124,7 @@
                                     </label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="Telephone" placeholder="Telephone">
+                                    <input type="text" class="form-control" id="telephone" name="telephone" placeholder="Telephone">
                                 </div>
                             </div>
                         </div>

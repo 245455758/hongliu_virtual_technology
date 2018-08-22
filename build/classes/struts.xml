@@ -2,16 +2,15 @@
 <!DOCTYPE struts PUBLIC
 	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
-
 <struts>
 	<constant name="struts.devMode" value="true"></constant>
-	
+	<constant name="struts.action.excludePattern" value="/Tools-Box/.*?" />
 	<package name="default" namespace="/" extends="struts-default">
 		<action name="userAction_*" class="userAction" method="{1}">
-			<result name="register_success">/user/register_success.jsp</result>
-			<result name="login_success">/user/login_success.jsp</result>
-			<result name="login_failed">/message.jsp</result>
+			<result name="register_success" type="redirect" >/views/homePage.jsp</result>
+			<result name="login_success" type="redirect">/views/homePage.jsp</result>
+			<result name="login_failed"  type="redirect">/views/index.jsp</result>
+			<result name="register_failed"  type="redirect">/views/index.jsp</result>
 		</action>
 	</package>
-	
 </struts>

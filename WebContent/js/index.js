@@ -23,8 +23,15 @@ $(() => {
     $('#Login-Button').click(() => {
         $('#Login-Button>i').removeClass('fa-paper-plane')
             .addClass('fa-spinner fa-pulse');
+        let studentNumber = $('#Usernumber').val();
+        let password = $('#password').val();
+        let obj = {studentNumber,password};
         setTimeout(() => {
-            $('#Login-Form').submit();
+            //获取后台session,如果为空，提交表单，不为空，显示信息
+            let msg = $('#message').html();
+            if (msg ==null||msg==""){
+                $('#Login-Form').submit();
+            }
         }, 800)
     });
     //注册面板，图标变换，预设800毫秒之后提交表单
