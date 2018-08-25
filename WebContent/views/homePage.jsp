@@ -29,7 +29,7 @@
     </div>
     <div class="row">
         <div class="col-sm-6 col-md-4">
-            <a href="" class="navigation">
+            <a href="${pageContext.request.contextPath }/noticeAction_showAllNotices" class="navigation">
                 <div class="thumbnail">
                     <img src="../img/circle1.jpg" alt="首页图" class="img-responsive">
                     <div class="caption">

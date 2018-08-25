@@ -24,13 +24,21 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<!-- 3 dao -->
+	<!-- 3.1 userDao -->
 	<bean id="userDao" class="com.hongliu.dao.impl.UserDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	<!-- 3.2 noticeDao -->
+	<bean id="noticeDao" class="com.hongliu.dao.impl.NoticeDaoImpl">
 		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
 	</bean>
 
 	<!-- 4 service -->
 	<bean id="userService" class="com.hongliu.service.impl.UserServiceImpl">
 		<property name="userDao" ref="userDao"></property>
+	</bean>
+	<bean id="noticeService" class="com.hongliu.service.impl.NoticeServiceImpl">
+		<property name="noticeDao" ref="noticeDao"></property>
 	</bean>
 	<!-- 5 事务管理 -->
 	<!-- 5.1 事务管理器 ：HibernateTransactionManager -->
@@ -53,5 +61,9 @@
 	<bean id="userAction" class="com.hongliu.web.action.UserAction" scope="prototype">
 		<property name="userService" ref="userService"></property>
 	</bean>
+	<bean id="noticeAction" class="com.hongliu.web.action.NoticeAction" scope="prototype">
+		<property name="noticeService" ref="noticeService"></property>
+	</bean>
+	
 
 </beans>

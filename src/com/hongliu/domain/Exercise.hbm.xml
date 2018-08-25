@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.hongliu.domain.Exercise" table="t_exercise">
+		<id name="exercise_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="time"></property>
+		<property name="title"></property>
+		<property name="url"></property>
+		<property name="context"></property>
+	</class>
+
+</hibernate-mapping>

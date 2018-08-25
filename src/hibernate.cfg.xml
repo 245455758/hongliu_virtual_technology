@@ -25,6 +25,7 @@
 		
 		<!-- 导入映射文件 -->
 		<mapping resource="com/hongliu/domain/User.hbm.xml"/>
+		<mapping resource="com/hongliu/domain/Notice.hbm.xml"/>
 			
 	</session-factory>
 </hibernate-configuration>

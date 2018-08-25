@@ -41,7 +41,10 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		context.getContext().getSession().put("user", user);
 		return "register_success";
 	}
-	
+	/**
+	 * userAction类中的登陆方法
+	 * @return
+	 */
 	public String login() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		String studentId = request.getParameter("studentId");

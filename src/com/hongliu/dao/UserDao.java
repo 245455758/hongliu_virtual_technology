@@ -16,6 +16,6 @@ public interface UserDao {
 	 * @param password
 	 * @return
 	 */
-	public List findUserByIdAndPassword(String id,String password);
+	public List<User> findUserByIdAndPassword(String id,String password);
 
 }

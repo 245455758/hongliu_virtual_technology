@@ -12,5 +12,9 @@
 			<result name="login_failed"  type="redirect">/views/index.jsp</result>
 			<result name="register_failed"  type="redirect">/views/index.jsp</result>
 		</action>
+		
+		<action name="noticeAction_*" class="noticeAction" method="{1}">
+			<result name="showAllNotice_Success" type="redirect">/views/noticePage.jsp</result>
+		</action>
 	</package>
 </struts>
