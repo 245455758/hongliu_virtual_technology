@@ -13,6 +13,9 @@
 		<property name="publisher"></property>
 		<property name="email"></property>
 		<property name="file"></property>
+		<property name="fileName"></property>
+		<property name="filePath"></property>
+		<property name="ContentType"></property>
 	</class>
 
 </hibernate-mapping>

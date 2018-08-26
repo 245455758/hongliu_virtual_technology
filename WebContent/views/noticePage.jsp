@@ -20,6 +20,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<s:debug/>
 	<nav class="navbar " role="navigation">
 	<div class="container">
 		<div class="navbar-header">
@@ -46,9 +47,9 @@
 					</div>
 					<div class="panel-body">
 						<ul>
-							<s:iterator value="${sessionScope.notices}" status="ns">
-								<li><s:property value="notice_id"/>:<s:property value="title"/></li>
-							</s:iterator>
+						 	<s:iterator value="#session.notices" var="notice" status="ns">
+								<li><s:property value="#ns.count"/>:<s:property value="#notice.title"/></li>
+							</s:iterator> 
 						</ul>
 					</div>
 				</div>
@@ -64,9 +65,9 @@
 					</div>
 					<div class="panel-body">
 						<ul>
-							<li>练习1</li>
-							<li>练习2</li>
-							<li>练习3</li>
+							<s:iterator value="#session.exercises" var="exercise" status="ec">
+								<li><s:property value="#ec.count"/>:<s:property value="#exercise.title"/></li>
+							</s:iterator>
 						</ul>
 					</div>
 				</div>
@@ -82,9 +83,9 @@
 					</div>
 					<div class="panel-body">
 						<ul>
-							<li>我是作业1</li>
-							<li>我是作业2</li>
-							<li>我是作业3</li>
+							<s:iterator value="#session.homeworks" var="homework" status="hw">
+								<li><s:property value="#hw.count"/>:<s:property value="#homework.title"/></li>
+							</s:iterator>
 						</ul>
 					</div>
 				</div>

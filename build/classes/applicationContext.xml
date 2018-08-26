@@ -32,6 +32,12 @@
 	<bean id="noticeDao" class="com.hongliu.dao.impl.NoticeDaoImpl">
 		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
 	</bean>
+	<bean id="exerciseDao" class="com.hongliu.dao.impl.ExerciseDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	<bean id="homeworkDao" class="com.hongliu.dao.impl.HomeworkDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
 
 	<!-- 4 service -->
 	<bean id="userService" class="com.hongliu.service.impl.UserServiceImpl">
@@ -39,6 +45,12 @@
 	</bean>
 	<bean id="noticeService" class="com.hongliu.service.impl.NoticeServiceImpl">
 		<property name="noticeDao" ref="noticeDao"></property>
+	</bean>
+	<bean id="exerciseService" class="com.hongliu.service.impl.ExerciseServiceImpl">
+		<property name="exerciseDao" ref="exerciseDao"></property>
+	</bean>
+	<bean id="homeworkService" class="com.hongliu.service.impl.HomeworkServiceImpl">
+		<property name="homeworkDao" ref="homeworkDao"></property>
 	</bean>
 	<!-- 5 事务管理 -->
 	<!-- 5.1 事务管理器 ：HibernateTransactionManager -->
@@ -63,6 +75,8 @@
 	</bean>
 	<bean id="noticeAction" class="com.hongliu.web.action.NoticeAction" scope="prototype">
 		<property name="noticeService" ref="noticeService"></property>
+		<property name="exerciseService" ref="exerciseService"></property>
+		<property name="homeworkService" ref="homeworkService"></property>
 	</bean>
 	
 

@@ -12,8 +12,17 @@ public class Homework {
 	private String publisher;
 	private String email;
 	private File file;
+	private String fileName;//上传文件名字
+	private String filePath;//文件保存的路径
+	private String ContentType;//上传文件类型
 	
 	
+	public String getFilePath() {
+		return filePath;
+	}
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
 	public Integer getHomework_id() {
 		return homework_id;
 	}
@@ -55,6 +64,18 @@ public class Homework {
 	}
 	public void setFile(File file) {
 		this.file = file;
+	}
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	public String getContentType() {
+		return ContentType;
+	}
+	public void setContentType(String contentType) {
+		ContentType = contentType;
 	}
 	
 	
