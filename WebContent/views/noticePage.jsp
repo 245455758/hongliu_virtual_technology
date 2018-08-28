@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="/struts-tags" prefix="s"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="/struts-tags" prefix="s"%>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,6 +17,41 @@
 <link rel="stylesheet"
 	href="../Tools-Box/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="../css/noticePage.css">
+<script>
+        function informDisplay(id){//测试id是你jsp页面传过来的，遍历的时候一定传给函数，然后在span中根据显示获取就行了。
+         //alert("你点我干嘛")
+          $.post("${pageContext.request.contextPath }/NoticeAjaxJsonExecution",{id:id},function (data) {
+              console.log(data)
+              $("#"+id).after(
+                  "<br><span>内容:"+data.context+"</span><br>"+
+                  "<span>发布者:"+data.publisher+"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+                  "<span>发布时间:"+data.time+"</span>"
+              )
+          })
+      }
+        function exerciseDisplay(id){
+            $.post("${pageContext.request.contextPath }/ExerciseAjaxJsonExecution",{id:id},function (data) {
+                console.log(data)
+                $("#"+id).after(
+                  "<br><span>内容:"+data.context+"</span><br>"+
+                  "<span><a href="+data.url+">题目链接"+"</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+                  "<span>发布时间:"+data.time+"</span>"
+              )
+            })
+        }
+        function jobDisplay(id){
+            $.post("${pageContext.request.contextPath }/HomeworkAjaxJsonExecution",{id:id},function (data) {
+                console.log(data)
+                $("#"+id).after(
+                  "<br><span>内容:"+data.context+"</span><br>"+
+                  "<span>发布者:"+data.publisher+"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+                  "<span>发布时间:"+data.time+"</span><br/>"+
+                  "<span>电子邮箱:"+data.email+"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+                  "<span>附件:"+data.file+"</span>"
+              )
+            })
+        }
+    </script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -48,7 +83,12 @@
 					<div class="panel-body">
 						<ul>
 						 	<s:iterator value="#session.notices" var="notice" status="ns">
-								<li><s:property value="#ns.count"/>:<s:property value="#notice.title"/></li>
+								<li>
+									<s:property value="#ns.count"/>:
+									<a href="javascript:informDisplay(<s:property value='#notice.notice_id'/>)" id="<s:property value='#notice.notice_id'/>">
+										<s:property value="#notice.title"/>
+									</a>
+								</li>
 							</s:iterator> 
 						</ul>
 					</div>
@@ -66,7 +106,11 @@
 					<div class="panel-body">
 						<ul>
 							<s:iterator value="#session.exercises" var="exercise" status="ec">
-								<li><s:property value="#ec.count"/>:<s:property value="#exercise.title"/></li>
+								<li>
+									<a href="javascript:exerciseDisplay(<s:property value='#exercise.exercise_id'/>)" id="<s:property value='#exercise.exercise_id'/>">
+										<s:property value="#ec.count"/>:<s:property value="#exercise.title"/>
+									</a>
+								</li>
 							</s:iterator>
 						</ul>
 					</div>
@@ -84,7 +128,11 @@
 					<div class="panel-body">
 						<ul>
 							<s:iterator value="#session.homeworks" var="homework" status="hw">
-								<li><s:property value="#hw.count"/>:<s:property value="#homework.title"/></li>
+								<li>
+									<a href="javascript:jobDisplay(<s:property value='#homework.homework_id'/>)" id="<s:property value='#homework.homework_id'/>">
+										<s:property value="#hw.count"/>:<s:property value="#homework.title"/>
+									</a>
+								</li>
 							</s:iterator>
 						</ul>
 					</div>
@@ -93,4 +141,5 @@
 		</div>
 	</div>
 </body>
+
 </html>

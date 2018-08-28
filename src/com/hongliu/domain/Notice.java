@@ -1,8 +1,9 @@
 package com.hongliu.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Notice {
+public class Notice implements Serializable{
 	
 	private Integer notice_id;
 	private Date time;
@@ -40,6 +41,11 @@ public class Notice {
 	}
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
+	}
+	@Override
+	public String toString() {
+		return "Notice [notice_id=" + notice_id + ", time=" + time + ", title=" + title + ", context=" + context
+				+ ", publisher=" + publisher + "]";
 	}
 	
 	

@@ -1,9 +1,10 @@
 package com.hongliu.domain;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Homework {
+public class Homework implements Serializable{
 	
 	private Integer homework_id;
 	private Date time;

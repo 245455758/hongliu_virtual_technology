@@ -21,7 +21,7 @@ public class NoticeDaoImpl implements NoticeDao {
 
 	@Override
 	public Notice findNoticeById(Integer id) {
-		return (Notice) hibernateTemplate.find("from Notice n where n.id=?",id);
+		return (Notice) hibernateTemplate.find("from Notice n where n.id=?",id).get(0);
 	}
 
 }

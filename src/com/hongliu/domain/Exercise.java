@@ -1,8 +1,9 @@
 package com.hongliu.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Exercise {
+public class Exercise implements Serializable{
 	
 	private Integer exercise_id;
 	private Date time;

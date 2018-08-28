@@ -1,6 +1,8 @@
 package com.hongliu.domain;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable{
 	
 /*	CREATE TABLE t_user(
 			id VARCHAR(30) PRIMARY KEY,

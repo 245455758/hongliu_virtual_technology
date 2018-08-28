@@ -5,7 +5,7 @@
 <struts>
 	<constant name="struts.devMode" value="true"></constant>
 	<constant name="struts.action.excludePattern" value="/Tools-Box/.*?" />
-	<package name="default" namespace="/" extends="struts-default">
+	<package name="default" namespace="/" extends="struts-default,json-default">
 		<action name="userAction_*" class="userAction" method="{1}">
 			<result name="register_success" type="redirect" >/views/homePage.jsp</result>
 			<result name="login_success" type="redirect">/views/homePage.jsp</result>
@@ -15,6 +15,13 @@
 		
 		<action name="noticeAction_*" class="noticeAction" method="{1}">
 			<result name="showAllNotice_Success" type="redirect">/views/noticePage.jsp</result>
+		</action>
+		
+		<action name="*JsonExecution" method="{1}" class="noticeAction">
+			<result name="success" type="json">
+				<param name="root">map</param>
+				<param name="excludeNullProperties">true</param>
+			</result>
 		</action>
 	</package>
 </struts>
