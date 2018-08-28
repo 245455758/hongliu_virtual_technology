@@ -22,7 +22,7 @@
          //alert("你点我干嘛")
           $.post("${pageContext.request.contextPath }/NoticeAjaxJsonExecution",{id:id},function (data) {
               console.log(data)
-              $("#"+id).after(
+              $("#notice_"+id).after(
                   "<br><span>内容:"+data.context+"</span><br>"+
                   "<span>发布者:"+data.publisher+"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
                   "<span>发布时间:"+data.time+"</span>"
@@ -32,7 +32,7 @@
         function exerciseDisplay(id){
             $.post("${pageContext.request.contextPath }/ExerciseAjaxJsonExecution",{id:id},function (data) {
                 console.log(data)
-                $("#"+id).after(
+                $("#exercise_"+id).after(
                   "<br><span>内容:"+data.context+"</span><br>"+
                   "<span><a href="+data.url+">题目链接"+"</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
                   "<span>发布时间:"+data.time+"</span>"
@@ -42,7 +42,7 @@
         function jobDisplay(id){
             $.post("${pageContext.request.contextPath }/HomeworkAjaxJsonExecution",{id:id},function (data) {
                 console.log(data)
-                $("#"+id).after(
+                $("#homework_"+id).after(
                   "<br><span>内容:"+data.context+"</span><br>"+
                   "<span>发布者:"+data.publisher+"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
                   "<span>发布时间:"+data.time+"</span><br/>"+
@@ -85,7 +85,7 @@
 						 	<s:iterator value="#session.notices" var="notice" status="ns">
 								<li>
 									<s:property value="#ns.count"/>:
-									<a href="javascript:informDisplay(<s:property value='#notice.notice_id'/>)" id="<s:property value='#notice.notice_id'/>">
+									<a href="javascript:informDisplay(<s:property value='#notice.notice_id'/>)" id="notice_<s:property value='#notice.notice_id'/>">
 										<s:property value="#notice.title"/>
 									</a>
 								</li>
@@ -107,7 +107,7 @@
 						<ul>
 							<s:iterator value="#session.exercises" var="exercise" status="ec">
 								<li>
-									<a href="javascript:exerciseDisplay(<s:property value='#exercise.exercise_id'/>)" id="<s:property value='#exercise.exercise_id'/>">
+									<a href="javascript:exerciseDisplay(<s:property value='#exercise.exercise_id'/>)" id="exercise_<s:property value='#exercise.exercise_id'/>">
 										<s:property value="#ec.count"/>:<s:property value="#exercise.title"/>
 									</a>
 								</li>
@@ -129,7 +129,7 @@
 						<ul>
 							<s:iterator value="#session.homeworks" var="homework" status="hw">
 								<li>
-									<a href="javascript:jobDisplay(<s:property value='#homework.homework_id'/>)" id="<s:property value='#homework.homework_id'/>">
+									<a href="javascript:jobDisplay(<s:property value='#homework.homework_id'/>)" id="homework_<s:property value='#homework.homework_id'/>">
 										<s:property value="#hw.count"/>:<s:property value="#homework.title"/>
 									</a>
 								</li>

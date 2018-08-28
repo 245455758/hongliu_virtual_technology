@@ -21,7 +21,7 @@ public class ExerciseDaoImpl implements ExerciseDao {
 
 	@Override
 	public Exercise findExerciseById(Integer id) {
-		return (Exercise) hibernateTemplate.find("from Exercise e where e.id=?",id);
+		return (Exercise) hibernateTemplate.find("from Exercise e where e.id=?",id).get(0);
 	}
 
 }

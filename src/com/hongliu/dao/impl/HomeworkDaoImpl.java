@@ -21,7 +21,7 @@ public class HomeworkDaoImpl implements HomeworkDao{
 
 	@Override
 	public Homework findHomeworkById(Integer id) {
-		return (Homework) hibernateTemplate.find("from Homework h where h.id=?",id);
+		return (Homework) hibernateTemplate.find("from Homework h where h.id=?",id).get(0);
 	}
 
 }
