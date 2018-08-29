@@ -1,5 +1,10 @@
 package com.hongliu.web.action;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +26,25 @@ import com.opensymphony.xwork2.ModelDriven;
 import net.sf.json.JSONObject;
 
 public class NoticeAction extends ActionSupport implements ModelDriven<Notice>{
+
+	/*
+	 *用来获取文件下载的输出流 
+	 */
+	private InputStream fileInputStream;
+	public InputStream getFileInputStream() {
+		return fileInputStream;
+	}
+	public void setFileInputStream(InputStream fileInputStream) {
+		this.fileInputStream = fileInputStream;
+	}
+	
+	private String filename;
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
 
 	/*
 	 * 用来返回ajax请求的属性
@@ -106,7 +130,19 @@ public class NoticeAction extends ActionSupport implements ModelDriven<Notice>{
 		map.put("context", homework.getContext());
 		map.put("email", homework.getEmail());
 		map.put("file", homework.getFilePath());
+		map.put("filePath", homework.getFilePath());
 //		System.out.println(map);
+		return SUCCESS;
+	}
+	
+	public String downloadFile() throws Exception {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		String filePath = request.getParameter("fileDownload");
+		String filePath1 = ServletActionContext.getServletContext().getRealPath(filePath);
+		fileInputStream = new FileInputStream(filePath1);
+		
+		filename = "QQ.exe";
+		filename = URLEncoder.encode(filename, "UTF-8");
 		return SUCCESS;
 	}
 

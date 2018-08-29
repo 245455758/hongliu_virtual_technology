@@ -23,5 +23,13 @@
 				<param name="excludeNullProperties">true</param>
 			</result>
 		</action>
+		
+		<action name="fileDownload"  class="noticeAction" method="downloadFile">
+			<result name="success" type="stream">
+				<param name="inputName">fileInputStream</param>
+				<param name="contentDisposition">attachment;filename=${filename}</param>
+				<param name="contentType">application/octet-stream</param>
+			</result>
+		</action>
 	</package>
 </struts>

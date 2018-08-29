@@ -21,7 +21,7 @@
         function informDisplay(id){//测试id是你jsp页面传过来的，遍历的时候一定传给函数，然后在span中根据显示获取就行了。
          //alert("你点我干嘛")
           $.post("${pageContext.request.contextPath }/NoticeAjaxJsonExecution",{id:id},function (data) {
-              console.log(data)
+              //console.log(data)
               $("#notice_"+id).after(
                   "<br><span>内容:"+data.context+"</span><br>"+
                   "<span>发布者:"+data.publisher+"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
@@ -31,7 +31,7 @@
       }
         function exerciseDisplay(id){
             $.post("${pageContext.request.contextPath }/ExerciseAjaxJsonExecution",{id:id},function (data) {
-                console.log(data)
+                //console.log(data)
                 $("#exercise_"+id).after(
                   "<br><span>内容:"+data.context+"</span><br>"+
                   "<span><a href="+data.url+">题目链接"+"</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
@@ -41,13 +41,13 @@
         }
         function jobDisplay(id){
             $.post("${pageContext.request.contextPath }/HomeworkAjaxJsonExecution",{id:id},function (data) {
-                console.log(data)
+                //console.log(data)
                 $("#homework_"+id).after(
                   "<br><span>内容:"+data.context+"</span><br>"+
                   "<span>发布者:"+data.publisher+"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
                   "<span>发布时间:"+data.time+"</span><br/>"+
                   "<span>电子邮箱:"+data.email+"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
-                  "<span>附件:"+data.file+"</span>"
+                  "<span><a href='${pageContext.request.contextPath }/fileDownload?fileDownload="+data.filePath+"'>附件</a></span>"
               )
             })
         }
@@ -63,6 +63,7 @@
 		</div>
 		<div class="navbar-right">
 			<ul class="nav navbar-nav navbar-right">
+			
 				<li><a href="#"><span class="glyphicon glyphicon-user"></span>个人信息</a></li>
 				<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
 						退出</a></li>
