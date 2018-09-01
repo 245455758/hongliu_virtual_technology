@@ -31,5 +31,10 @@
 				<param name="contentType">application/octet-stream</param>
 			</result>
 		</action>
+		
+		
+		<action name="intoForum" class="forumAction" method="intoForum">
+			<result name="success" type="redirect">/index.html</result>
+		</action>
 	</package>
 </struts>

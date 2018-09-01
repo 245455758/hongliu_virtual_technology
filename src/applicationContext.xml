@@ -79,5 +79,9 @@
 		<property name="homeworkService" ref="homeworkService"></property>
 	</bean>
 	
+	<bean id="forumAction" class="com.hongliu.web.action.ForumAction" scope="prototype">
+	
+	</bean>
+	
 
 </beans>

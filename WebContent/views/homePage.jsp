@@ -39,7 +39,7 @@
             </a>
         </div>
         <div class="col-sm-6 col-md-4">
-            <a href="" class="navigation">
+            <a href="${pageContext.request.contextPath }/intoForum" class="navigation">
                 <div class="thumbnail">
                     <img src="../img/circle2.jpg" alt="论坛图" class="img-responsive">
                     <div class="caption">

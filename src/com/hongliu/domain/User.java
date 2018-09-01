@@ -1,6 +1,7 @@
 package com.hongliu.domain;
 
 import java.io.Serializable;
+import java.util.Set;
 
 public class User implements Serializable{
 	
@@ -18,7 +19,8 @@ public class User implements Serializable{
 	private String telephone;
 	private Boolean isH;
 
-	
+	private Set<Post> posts;
+	private Set<Reply> replies;
 	public Integer getId() {
 		return id;
 	}
@@ -55,10 +57,17 @@ public class User implements Serializable{
 	public void setIsH(Boolean isH) {
 		this.isH = isH;
 	}
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", studentId=" + studentId + ", username=" + username + ", password=" + password
-				+ ", telephone=" + telephone + ", isH=" + isH + "]";
+	public Set<Post> getPosts() {
+		return posts;
+	}
+	public void setPosts(Set<Post> posts) {
+		this.posts = posts;
+	}
+	public Set<Reply> getReplies() {
+		return replies;
+	}
+	public void setReplies(Set<Reply> replies) {
+		this.replies = replies;
 	}
 	
 
