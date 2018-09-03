@@ -3,20 +3,16 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="com.hongliu.domain.User" table="t_user">
-		<id name="id">
+	<class name="com.hongliu.domain.Post" table="t_post">
+		<id name="post_id">
 			<generator class="native"></generator>
 		</id>
-		<property name="studentId"></property>
-		<property name="username"></property>
-		<property name="password"></property>
-		<property name="telephone"></property>
-		<property name="isH"></property>
+		<property name="title"></property>
+		<property name="time"></property>
+		<property name="context"></property>
 		
-		<set name="posts" cascade="delete-orphan">
-			<key column="post_id"></key>
-			<one-to-many class="com.hongliu.domain.Post" />
-		</set>
+		<many-to-one name="user" class="com.hongliu.domain.User" column="user_id">
+		</many-to-one>
 		<set name="replies" cascade="delete-orphan">
 			<key column="reply_id"></key>
 			<one-to-many class="com.hongliu.domain.Reply" />

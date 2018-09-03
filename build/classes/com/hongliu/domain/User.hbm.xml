@@ -12,6 +12,15 @@
 		<property name="password"></property>
 		<property name="telephone"></property>
 		<property name="isH"></property>
+		
+		<set name="posts" cascade="delete-orphan">
+			<key column="post_id"></key>
+			<one-to-many class="com.hongliu.domain.Post" />
+		</set>
+		<set name="replies" cascade="delete-orphan">
+			<key column="reply_id"></key>
+			<one-to-many class="com.hongliu.domain.Reply" />
+		</set>
 	</class>
 
 </hibernate-mapping>

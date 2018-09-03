@@ -38,6 +38,12 @@
 	<bean id="homeworkDao" class="com.hongliu.dao.impl.HomeworkDaoImpl">
 		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
 	</bean>
+	<bean id="postDao" class="com.hongliu.dao.impl.PostDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	<bean id="replyDao" class="com.hongliu.dao.impl.ReplyDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
 
 	<!-- 4 service -->
 	<bean id="userService" class="com.hongliu.service.impl.UserServiceImpl">
@@ -51,6 +57,12 @@
 	</bean>
 	<bean id="homeworkService" class="com.hongliu.service.impl.HomeworkServiceImpl">
 		<property name="homeworkDao" ref="homeworkDao"></property>
+	</bean>
+	<bean id="postService" class="com.hongliu.service.impl.PostServiceImpl">
+		<property name="postDao" ref="postDao"></property>
+	</bean>
+	<bean id="replyService" class="com.hongliu.service.impl.ReplyServiceImpl">
+		<property name="replyDao" ref="replyDao"></property>
 	</bean>
 	<!-- 5 事务管理 -->
 	<!-- 5.1 事务管理器 ：HibernateTransactionManager -->

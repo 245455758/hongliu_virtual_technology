@@ -1,17 +1,11 @@
 package com.hongliu.domain;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 public class User implements Serializable{
 	
-/*	CREATE TABLE t_user(
-			id VARCHAR(30) PRIMARY KEY,
-			username VARCHAR(50),
-			PASSWORD VARCHAR(50),
-			telephone VARCHAR(50),
-			isH BOOLEAN
-		);*/
 	private Integer id;
 	private String studentId;
 	private String username;
@@ -19,8 +13,8 @@ public class User implements Serializable{
 	private String telephone;
 	private Boolean isH;
 
-	private Set<Post> posts;
-	private Set<Reply> replies;
+	private Set<Post> posts=new HashSet<Post>();
+	private Set<Reply> replies=new HashSet<Reply>();
 	public Integer getId() {
 		return id;
 	}

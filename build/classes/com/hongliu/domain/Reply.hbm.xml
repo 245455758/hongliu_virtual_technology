@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.hongliu.domain.Reply" table="t_reply">
+		<id name="reply_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="time"></property>
+		<property name="context"></property>
+		
+		<many-to-one name="user" class="com.hongliu.domain.User" column="user_id">
+		</many-to-one>
+		<many-to-one name="post" class="com.hongliu.domain.Post" column="post_id">
+		</many-to-one>
+	</class>
+
+</hibernate-mapping>

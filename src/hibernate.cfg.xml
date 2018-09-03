@@ -28,6 +28,8 @@
 		<mapping resource="com/hongliu/domain/Notice.hbm.xml"/>
 		<mapping resource="com/hongliu/domain/Exercise.hbm.xml"/>
 		<mapping resource="com/hongliu/domain/Homework.hbm.xml"/>
+		<mapping resource="com/hongliu/domain/Post.hbm.xml"/>
+		<mapping resource="com/hongliu/domain/Reply.hbm.xml"/>
 			
 	</session-factory>
 </hibernate-configuration>
