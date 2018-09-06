@@ -34,7 +34,7 @@
 		
 		
 		<action name="intoForum" class="forumAction" method="intoForum">
-			<result name="success" type="redirect">/index.html</result>
+			<result name="success" type="redirect">/forum/index.html</result>
 		</action>
 	</package>
 </struts>
